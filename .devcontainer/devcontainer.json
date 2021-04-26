@@ -27,6 +27,7 @@
 		"vscjava.vscode-spring-boot-dashboard",
 		"redhat.java",
 		"vscjava.vscode-java-test",
+		"sonarsource.sonarlint-vscode",
 		"visualstudioexptteam.vscodeintellicode",
 		"streetsidesoftware.code-spell-checker",
 		"gruntfuggly.todo-tree",
