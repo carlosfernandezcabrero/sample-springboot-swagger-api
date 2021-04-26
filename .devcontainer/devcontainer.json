@@ -26,6 +26,7 @@
 		"pivotal.vscode-spring-boot",
 		"vscjava.vscode-spring-boot-dashboard",
 		"redhat.java",
+		"vscjava.vscode-java-test",
 		"visualstudioexptteam.vscodeintellicode",
 		"streetsidesoftware.code-spell-checker",
 		"gruntfuggly.todo-tree",
