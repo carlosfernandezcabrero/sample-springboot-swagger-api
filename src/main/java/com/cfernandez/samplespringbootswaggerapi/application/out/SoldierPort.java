@@ -11,4 +11,6 @@ public interface SoldierPort {
     
     Optional<Soldier> findById(Soldier soldier);
     
+    void deleteById(Soldier soldier);
+    
 }

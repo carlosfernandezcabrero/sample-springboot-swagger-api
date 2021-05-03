@@ -25,4 +25,9 @@ public class SoldierRepositoryAdapter implements SoldierPort {
         return soldierRepository.findById(soldier.getId());
     }
     
+    @Override
+    public void deleteById(Soldier soldier) {
+    	soldierRepository.deleteById(soldier.getId());
+    }
+    
 }
