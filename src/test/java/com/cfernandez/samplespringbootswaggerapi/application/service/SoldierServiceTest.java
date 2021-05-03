@@ -60,7 +60,7 @@ class SoldierServiceTest {
     @Test
     @DisplayName("Find by ID and return data")
     void testFindById() {
-    	Mockito.when(soldierPort.findById(Mockito.any(Soldier.class))).thenReturn(Optional.of(SOLDIER));
+    	Mockito.when(soldierPort.findById(ID)).thenReturn(Optional.of(SOLDIER));
     	
     	final Optional<Soldier> response = soldierService.findById(ID);
     	

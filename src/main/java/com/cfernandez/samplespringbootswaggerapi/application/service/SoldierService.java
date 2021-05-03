@@ -26,18 +26,12 @@ public class SoldierService implements SoldierFindAllUseCase, SoldierFindByIdUse
 
     @Override
     public Optional<Soldier> findById(Integer id) {
-        Soldier soldier = new Soldier();
-        soldier.setId(id);
-
-        return soldierPort.findById(soldier);
+        return soldierPort.findById(id);
     }
 
 	@Override
 	public void deleteById(Integer id) {
-		Soldier soldier = new Soldier();
-		soldier.setId(id);
-		
-		soldierPort.deleteById(soldier);
+		soldierPort.deleteById(id);
 	}
     
 }

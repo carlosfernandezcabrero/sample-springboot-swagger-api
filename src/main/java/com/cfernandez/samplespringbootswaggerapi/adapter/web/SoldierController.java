@@ -24,7 +24,6 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping(value = "/soldiers",
 				produces = MediaType.APPLICATION_JSON_VALUE)
 @Api(tags = "soldier",
-	description = "Use for manage soldiers and get information about them",
 	value = "Soldier")
 class SoldierController {
 
@@ -39,7 +38,7 @@ class SoldierController {
     }
 
     @GetMapping("/{id}")
-    @ApiOperation(tags = "soldier", value = "Find soldier by Id")
+    @ApiOperation(tags = "soldier", value = "Find soldier by his ID")
     public ResponseEntity<Soldier> findById(@RequestParam Integer id){
         Optional<Soldier> optionalSoldier = soldierFindByIdUseCase.findById(id);
         if (optionalSoldier.isPresent()){
@@ -50,7 +49,7 @@ class SoldierController {
     }
     
     @DeleteMapping(value = "/{id}", produces = MediaType.TEXT_PLAIN_VALUE)
-    @ApiOperation(tags = "soldier", value = "Delete soldier by Id")
+    @ApiOperation(tags = "soldier", value = "Delete soldier by his ID")
     public ResponseEntity<String> deleteById(@RequestParam Integer id){
     	soldierDeleteById.deleteById(id);
     	return ResponseEntity.ok().body("The soldier was successfully removed");

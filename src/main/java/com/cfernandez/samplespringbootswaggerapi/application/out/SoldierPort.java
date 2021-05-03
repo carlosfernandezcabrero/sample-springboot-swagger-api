@@ -9,8 +9,8 @@ public interface SoldierPort {
 
     List<Soldier> findAll();
     
-    Optional<Soldier> findById(Soldier soldier);
+    Optional<Soldier> findById(Integer id);
     
-    void deleteById(Soldier soldier);
+    void deleteById(Integer id);
     
 }

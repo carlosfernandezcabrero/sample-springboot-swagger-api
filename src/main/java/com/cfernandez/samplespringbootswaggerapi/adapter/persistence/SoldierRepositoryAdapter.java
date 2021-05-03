@@ -21,13 +21,13 @@ public class SoldierRepositoryAdapter implements SoldierPort {
     }
 
     @Override
-    public Optional<Soldier> findById(Soldier soldier) {
-        return soldierRepository.findById(soldier.getId());
+    public Optional<Soldier> findById(Integer id) {
+        return soldierRepository.findById(id);
     }
     
     @Override
-    public void deleteById(Soldier soldier) {
-    	soldierRepository.deleteById(soldier.getId());
+    public void deleteById(Integer id) {
+    	soldierRepository.deleteById(id);
     }
     
 }
