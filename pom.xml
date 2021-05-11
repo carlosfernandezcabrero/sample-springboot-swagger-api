@@ -65,6 +65,12 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
+                
+                <!-- Validator -->
+                <dependency> 
+                    <groupId>org.springframework.boot</groupId> 
+                    <artifactId>spring-boot-starter-validation</artifactId> 
+                </dependency>
 	</dependencies>
 
 	<build>
@@ -81,6 +87,14 @@
 					</excludes>
 				</configuration>
 			</plugin>
+		 <plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-compiler-plugin</artifactId>
+		  <version>2.3.2</version>
+		  <configuration>
+		   <showDeprecation>false</showDeprecation>
+		  </configuration>
+		 </plugin>
 		</plugins>
 	</build>
 

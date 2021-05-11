@@ -2,10 +2,14 @@ package com.cfernandez.samplespringbootswaggerapi.application.in;
 
 import java.util.List;
 
-import com.cfernandez.samplespringbootswaggerapi.model.Soldier;
+import com.cfernandez.samplespringbootswaggerapi.model.SoldierEntity;
 
 public interface SoldierFindAllUseCase {
 
-    List<Soldier> findAll();
+    /**
+     * Method that has the logic for find all Soldiers
+     * @return List of Soldiers
+     */
+    List<SoldierEntity> findAll();
     
 }
