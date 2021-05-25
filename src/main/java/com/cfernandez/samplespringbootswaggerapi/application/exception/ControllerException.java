@@ -6,7 +6,12 @@ package com.cfernandez.samplespringbootswaggerapi.application.exception;
  */
 public class ControllerException extends RuntimeException {
     
-    public ControllerException(Throwable cause, String message) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public ControllerException(Throwable cause, String message) {
         super(message, cause);
     }
     

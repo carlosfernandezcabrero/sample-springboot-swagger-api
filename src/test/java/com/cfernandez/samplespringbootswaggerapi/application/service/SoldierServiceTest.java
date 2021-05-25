@@ -81,6 +81,7 @@ class SoldierServiceTest {
     void deleteById(){
         doNothing().when(soldierPort).deleteById(ID);
         soldierService.deleteById(ID);
+        assertTrue(true);
     }
 
     @Test

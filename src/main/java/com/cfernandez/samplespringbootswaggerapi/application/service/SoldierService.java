@@ -43,7 +43,7 @@ public class SoldierService implements
             Optional<SoldierEntity> soldierEntity = findById(ID);
 
             if (soldierEntity.isPresent()) {
-                SoldierEntity soldier = soldierEntity.get();
+                var soldier = soldierEntity.get();
                 soldier.setId(ID);
                 soldier.setType(soldierUpdateDTO.getType());
                 soldier.setDescription(soldierUpdateDTO.getDescription());
@@ -59,8 +59,8 @@ public class SoldierService implements
 
     @Override
     public SoldierEntity save(SoldierSaveDTO soldierSaveDTO) throws ServiceException {
-        SoldierEntity soldierEntity = new SoldierEntity();
-        String lastField = "";
+        var soldierEntity = new SoldierEntity();
+        var lastField = "";
 
         try {
             soldierEntity.setName(soldierSaveDTO.getName());

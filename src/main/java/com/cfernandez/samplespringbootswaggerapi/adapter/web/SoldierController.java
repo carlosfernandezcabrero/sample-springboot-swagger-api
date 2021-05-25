@@ -9,10 +9,10 @@ import com.cfernandez.samplespringbootswaggerapi.application.in.*;
 import com.cfernandez.samplespringbootswaggerapi.model.SoldierEntity;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.Api;
@@ -40,6 +40,7 @@ class SoldierController {
     }
 
     @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @ApiOperation(tags = "soldier", value = "Find soldier by his ID")
     public ResponseEntity<SoldierEntity> findById(@PathVariable Integer id){
         Optional<SoldierEntity> optionalSoldier = soldierFindByIdUseCase.findById(id);
@@ -59,7 +60,7 @@ class SoldierController {
                                                 BindingResult bindingResult) {
         try{
             if (bindingResult.hasFieldErrors()){
-                FieldError error = bindingResult.getFieldError();
+                var error = bindingResult.getFieldError();
                 if (error != null) {
                     throw new ControllerException("The field " + error.getField() + ": " + error.getDefaultMessage());
                 } else {
@@ -79,7 +80,7 @@ class SoldierController {
                                               BindingResult bindingResult) {
         try {
             if (bindingResult.hasFieldErrors()){
-                FieldError error = bindingResult.getFieldError();
+                var error = bindingResult.getFieldError();
                 if (error != null) {
                     throw new ControllerException("The field " + error.getField() + ": " + error.getDefaultMessage());
                 } else {

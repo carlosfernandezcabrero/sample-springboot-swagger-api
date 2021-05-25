@@ -5,9 +5,6 @@ import com.cfernandez.samplespringbootswaggerapi.model.SoldierEntity;
 
 import javax.validation.constraints.NotBlank;
 
-import lombok.Getter;
-import lombok.Setter;
-
 public interface SoldierUpdateByIdUseCase {
 
     /**
@@ -18,13 +15,32 @@ public interface SoldierUpdateByIdUseCase {
      */
     SoldierEntity updateById(SoldierUpdateDTO soldierUpdateDTO) throws ServiceException;
     
-    @Setter
-    @Getter
     final class SoldierUpdateDTO {
         
         @NotBlank private String id;
         @NotBlank private String type;
         @NotBlank private String description;
+        
+        
+        // Getters and Setters
+		public String getId() {
+			return id;
+		}
+		public void setId(String id) {
+			this.id = id;
+		}
+		public String getType() {
+			return type;
+		}
+		public void setType(String type) {
+			this.type = type;
+		}
+		public String getDescription() {
+			return description;
+		}
+		public void setDescription(String description) {
+			this.description = description;
+		}
 
     }
     

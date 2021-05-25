@@ -133,31 +133,29 @@ class SoldierControllerTest {
     @DisplayName("Update soldier when has errors in the validation")
     @Test
     void updateWhenValidationIsWrong(){
-        Assertions.assertThrows(ControllerException.class, () -> {
-            when(bindingResult.hasFieldErrors()).thenReturn(true);
-            when(bindingResult.getFieldError()).thenReturn(fieldError);
-            sController.update(SOLDIER_UPDATE_DTO, bindingResult);
-        });
+    	when(bindingResult.hasFieldErrors()).thenReturn(true);
+        when(bindingResult.getFieldError()).thenReturn(fieldError);
+        Assertions.assertThrows(ControllerException.class, () -> sController.update(SOLDIER_UPDATE_DTO, bindingResult));
     }
 
     @DisplayName("Update soldier when field error is null")
     @Test
     void updateWhenFieldErrorIsNull(){
-        Assertions.assertThrows(ControllerException.class, () -> {
-            when(bindingResult.hasFieldErrors()).thenReturn(true);
-            when(bindingResult.getFieldError()).thenReturn(null);
-            sController.update(SOLDIER_UPDATE_DTO, bindingResult);
-        });
+    	when(bindingResult.hasFieldErrors()).thenReturn(true);
+        when(bindingResult.getFieldError()).thenReturn(null);
+        Assertions.assertThrows(ControllerException.class, () -> sController.update(SOLDIER_UPDATE_DTO, bindingResult));
     }
 
     @DisplayName("Update launches ServiceException")
     @Test
     void updateLaunchesServiceException(){
-        Assertions.assertThrows(ControllerException.class, () -> {
-            when(bindingResult.hasFieldErrors()).thenReturn(false);
-            when(soldierUpdateByIdUseCase.updateById(SOLDIER_UPDATE_DTO)).thenThrow(ServiceException.class);
-           sController.update(SOLDIER_UPDATE_DTO, bindingResult);
-        });
+    	try {
+    		when(bindingResult.hasFieldErrors()).thenReturn(false);
+    		when(soldierUpdateByIdUseCase.updateById(SOLDIER_UPDATE_DTO)).thenThrow(ServiceException.class);
+    		Assertions.assertThrows(ControllerException.class, () -> sController.update(SOLDIER_UPDATE_DTO, bindingResult));
+    	} catch(ServiceException e) {
+    		fail(e.getMessage());
+    	}
     }
 
     @DisplayName("Save soldier")
@@ -181,30 +179,28 @@ class SoldierControllerTest {
     @DisplayName("Save soldier when has errors in the validation")
     @Test
     void saveWhenValidationIsWrong(){
-        Assertions.assertThrows(ControllerException.class, () -> {
-            when(bindingResult.hasFieldErrors()).thenReturn(true);
-            when(bindingResult.getFieldError()).thenReturn(fieldError);
-            sController.save(SOLDIER_SAVE_DTO, bindingResult);
-        });
+    	when(bindingResult.hasFieldErrors()).thenReturn(true);
+        when(bindingResult.getFieldError()).thenReturn(fieldError);
+        Assertions.assertThrows(ControllerException.class, () -> sController.save(SOLDIER_SAVE_DTO, bindingResult));
     }
 
     @DisplayName("Save soldier when field error is null")
     @Test
     void saveWhenFieldErrorIsNull(){
-        Assertions.assertThrows(ControllerException.class, () -> {
-            when(bindingResult.hasFieldErrors()).thenReturn(true);
-            when(bindingResult.getFieldError()).thenReturn(null);
-            sController.save(SOLDIER_SAVE_DTO, bindingResult);
-        });
+    	when(bindingResult.hasFieldErrors()).thenReturn(true);
+        when(bindingResult.getFieldError()).thenReturn(null);
+        Assertions.assertThrows(ControllerException.class, () -> sController.save(SOLDIER_SAVE_DTO, bindingResult));
     }
 
     @DisplayName("Save launches ServiceException")
     @Test
     void saveLaunchesServiceException() {
-        Assertions.assertThrows(ControllerException.class, () -> {
-            when(bindingResult.hasFieldErrors()).thenReturn(false);
-            when(soldierSaveUseCase.save(SOLDIER_SAVE_DTO)).thenThrow(ServiceException.class);
-            sController.save(SOLDIER_SAVE_DTO, bindingResult);
-        });
+    	try {
+    		when(bindingResult.hasFieldErrors()).thenReturn(false);
+    		when(soldierSaveUseCase.save(SOLDIER_SAVE_DTO)).thenThrow(ServiceException.class);
+    		Assertions.assertThrows(ControllerException.class, () -> sController.save(SOLDIER_SAVE_DTO, bindingResult));
+    	} catch(ServiceException e) {
+    		fail(e.getMessage());
+    	}
     }
 }
